@@ -3,7 +3,6 @@ package session
 import (
 	"bytes"
 	"encoding/gob"
-	"fmt"
 	"github.com/gin-gonic/gin"
 	"github.com/gomodule/redigo/redis"
 	"github.com/google/uuid"
@@ -55,8 +54,6 @@ func (s *redisSessionStore) Get(key string) interface{} {
 }
 
 func (s *redisSessionStore) Set(key string, val interface{}) {
-	fmt.Println(s.data)
-	fmt.Println(key, val)
 	s.data[key] = val
 	s.modify = true
 }
